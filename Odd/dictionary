@@ -1,0 +1,17 @@
+ "append": lambda x,y:x.append(y),
+    "print": lambda x:print(x),
+    "reverse": lambda x:x.reverse(),
+    "pop": lambda x:x.pop(),
+    "sort":lambda x: x.sort()}
+    out=[]
+    for i in range(N):
+        a=input()
+        split_a=a.split(' ')
+        command=split_a[0]
+        try:
+            commands[command](out,int(split_a[1]),int(split_a[2]))
+        except IndexError:
+            try:
+                commands[command](out,int(split_a[1]))
+            except IndexError:
+                commands[command](out)
