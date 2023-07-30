@@ -1,0 +1,28 @@
+def string_warp(sentence):
+    sentence=sentence.strip()
+    res=''
+    ind=0
+    for i in sentence:
+        if (ind==0):
+            res+=i
+            ind+=1
+        elif (i==' '):
+            res+=i
+            ind+=1
+        else:
+            y=sentence[ind-1]
+            if (y==' '):
+                res+=i
+                ind+=1
+            elif (y.lower()<i.lower()):
+                res+=i.upper()
+                ind+=1
+            elif (y.lower()>i.lower()):
+                res+=i.lower()
+                ind+=1
+            else:
+                res+=i
+                ind+=1
+    return res
+answer=string_warp("      A Blue MoOn")
+print(answer)
